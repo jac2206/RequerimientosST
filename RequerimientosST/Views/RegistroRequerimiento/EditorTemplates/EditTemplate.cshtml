@@ -1,0 +1,142 @@
+﻿@model RequerimientosST.Models.uspObtenerRequerimientos_Result
+
+<div class="k-popup-edit-form k-window-content k-content">
+    <div class="k-edit-form-container">
+        <h2>AGREGAR REQUERIMIENTO</h2>
+        <br />
+
+        <div>
+            @Html.LabelFor(model => model.Nombre)
+
+        </div>
+        <div>
+            @(Html.Kendo().DropDownListFor(model => model.Nombre)
+                                                             .HtmlAttributes(new { required = "required", data_required_msg = "Campo requerido" })
+                                                             //.AutoBind(true)
+                                                             .OptionLabel("Seleccionar Area...")
+                                                             .DataTextField("Nombre")
+                                                             .DataValueField("Nombre")
+                                                             .DataSource(dataSource =>
+                                                             {
+                                                                 dataSource.Read(read => read.Action("ObtenerAreaLista", "RegistroRequerimiento"));
+
+
+
+
+
+                                                             })
+            )
+            @Html.ValidationMessageFor(model => model.Nombre)
+        </div>
+
+        &nbsp
+        <div>
+            @Html.LabelFor(model => model.Aplicativo)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Aplicativo)
+            @Html.ValidationMessageFor(model => model.Aplicativo)
+        </div>
+
+        &nbsp
+        <div>
+            @Html.LabelFor(model => model.Alcance)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Alcance)
+            @Html.ValidationMessageFor(model => model.Alcance)
+        </div>
+
+        &nbsp
+        <div>
+            @Html.LabelFor(model => model.FechaSolicitud)
+
+        </div>
+        <div>
+            @Html.Kendo().DatePickerFor(model => model.FechaSolicitud).Format("{0:yyyy-MM-dd}")
+            @Html.ValidationMessageFor(model => model.FechaSolicitud)
+        </div>
+
+        &nbsp
+        <div>
+            @Html.LabelFor(model => model.Prioridad)
+        </div>
+        <div>
+
+            @(Html.Kendo().DropDownListFor(model => model.Prioridad)
+                                                                  .HtmlAttributes(new { required = "required", data_required_msg = "Campo requerido" })
+                                                                  //.AutoBind(true)
+                                                                  .OptionLabel("Seleccionar Prioridad...")
+                                                                  .DataTextField("Prioridad")
+                                                                  .DataValueField("Prioridad")
+                                                                  .DataSource(dataSource =>
+                                                                  {
+                                                                      dataSource.Read(read => read.Action("ObtenerPrioridadLista", "RegistroRequerimiento"));
+
+
+
+
+
+
+                                                                  })
+            )
+            @Html.ValidationMessageFor(model => model.Prioridad)
+
+        </div>
+
+        &nbsp
+        <div>
+            @Html.LabelFor(model => model.Ingeniero)
+        </div>
+        <div>
+
+            @(Html.Kendo().DropDownListFor(model => model.Ingeniero)
+                                                                  .HtmlAttributes(new { required = "required", data_required_msg = "Campo requerido" })
+                                                                  //.AutoBind(true)
+                                                                  .OptionLabel("Seleccionar Ingeniero...")
+                                                                  .DataTextField("Ingeniero")
+                                                                  .DataValueField("Ingeniero")
+                                                                  .DataSource(dataSource =>
+                                                                  {
+                                                                      dataSource.Read(read => read.Action("ObtenerIngenieroLista", "RegistroRequerimiento"));
+
+
+
+
+
+
+                                                                  })
+            )
+            @Html.ValidationMessageFor(model => model.Ingeniero)
+
+        </div>
+
+        &nbsp
+        <div>
+            @Html.LabelFor(model => model.DiasDesarrollo)
+        </div>
+        <div>
+
+            @(Html.Kendo().NumericTextBoxFor<int>(model => model.DiasDesarrollo)
+                                                 .Min(0)
+                                                 .Max(32000)
+            )
+            @Html.ValidationMessageFor(model => model.DiasDesarrollo)
+
+        </div>
+        &nbsp
+
+        <div>
+            @Html.LabelFor(model => model.FechaDesarrollo)
+        </div>
+        <div>
+
+            @Html.Kendo().DatePickerFor(model => model.FechaDesarrollo).Format("{0:yyyy-MM-dd}")
+            @Html.ValidationMessageFor(model => model.FechaDesarrollo)
+
+        </div>
+
+
+
+    </div>
+</div>

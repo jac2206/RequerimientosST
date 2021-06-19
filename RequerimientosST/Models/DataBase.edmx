@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PruebaTecnicaJulianArangoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="uspObtenerMaestroArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Maestro" />
+        <Function Name="uspObtenerMaestroIngeniero" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Maestro" />
+        <Function Name="uspObtenerMaestroPrioridad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Maestro" />
+        <Function Name="uspActualizarRequerimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Produccion">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="Area" Type="varchar" Mode="In" />
+          <Parameter Name="Aplicativo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Alcance" Type="varchar(max)" Mode="In" />
+          <Parameter Name="FechaSolicitud" Type="datetime" Mode="In" />
+          <Parameter Name="Prioridad" Type="varchar" Mode="In" />
+          <Parameter Name="Ingeniero" Type="varchar" Mode="In" />
+          <Parameter Name="DiasDesarrollo" Type="int" Mode="In" />
+          <Parameter Name="FechaDesarrollo" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspEliminarRequerimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Produccion">
+          <Parameter Name="IdRegristro" Type="int" Mode="In" />
+        </Function>
+        <Function Name="uspGuardarRequerimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Produccion">
+          <Parameter Name="Area" Type="varchar" Mode="In" />
+          <Parameter Name="Aplicativo" Type="varchar(max)" Mode="In" />
+          <Parameter Name="Alcance" Type="varchar(max)" Mode="In" />
+          <Parameter Name="FechaSolicitud" Type="datetime" Mode="In" />
+          <Parameter Name="Prioridad" Type="varchar" Mode="In" />
+          <Parameter Name="Ingeniero" Type="varchar" Mode="In" />
+          <Parameter Name="DiasDesarrollo" Type="int" Mode="In" />
+          <Parameter Name="FechaDesarrollo" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="uspObtenerRequerimientos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="Produccion" />
+        <EntityContainer Name="PruebaTecnicaJulianArangoModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PruebaTecnicaJulianArangoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PruebaTecnicaJulianArangoEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="uspObtenerMaestroArea" ReturnType="Collection(PruebaTecnicaJulianArangoModel.uspObtenerMaestroArea_Result)" />
+          <FunctionImport Name="uspObtenerMaestroIngeniero" ReturnType="Collection(PruebaTecnicaJulianArangoModel.uspObtenerMaestroIngeniero_Result)" />
+          <FunctionImport Name="uspObtenerMaestroPrioridad" ReturnType="Collection(PruebaTecnicaJulianArangoModel.uspObtenerMaestroPrioridad_Result)" />
+          <FunctionImport Name="uspObtenerRequerimientos" ReturnType="Collection(PruebaTecnicaJulianArangoModel.uspObtenerRequerimientos_Result)" />
+          <FunctionImport Name="uspGuardarRequerimientos">
+            <Parameter Name="Area" Mode="In" Type="String" />
+            <Parameter Name="Aplicativo" Mode="In" Type="String" />
+            <Parameter Name="Alcance" Mode="In" Type="String" />
+            <Parameter Name="FechaSolicitud" Mode="In" Type="DateTime" />
+            <Parameter Name="Prioridad" Mode="In" Type="String" />
+            <Parameter Name="Ingeniero" Mode="In" Type="String" />
+            <Parameter Name="DiasDesarrollo" Mode="In" Type="Int32" />
+            <Parameter Name="FechaDesarrollo" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="uspEliminarRequerimientos">
+          <Parameter Name="IdRegristro" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="uspActualizarRequerimientos">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="Area" Mode="In" Type="String" />
+            <Parameter Name="Aplicativo" Mode="In" Type="String" />
+            <Parameter Name="Alcance" Mode="In" Type="String" />
+            <Parameter Name="FechaSolicitud" Mode="In" Type="DateTime" />
+            <Parameter Name="Prioridad" Mode="In" Type="String" />
+            <Parameter Name="Ingeniero" Mode="In" Type="String" />
+            <Parameter Name="DiasDesarrollo" Mode="In" Type="Int32" />
+            <Parameter Name="FechaDesarrollo" Mode="In" Type="DateTime" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="uspObtenerMaestroArea_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="uspObtenerMaestroIngeniero_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Ingeniero" Nullable="false" MaxLength="201" />
+          <Property Type="String" Name="Cargo" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="uspObtenerMaestroPrioridad_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Prioridad" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaHora" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="uspObtenerRequerimientos_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Aplicativo" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Alcance" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="FechaSolicitud" Nullable="false" Precision="23" />
+          <Property Type="String" Name="Prioridad" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Ingeniero" Nullable="false" MaxLength="201" />
+          <Property Type="Int32" Name="DiasDesarrollo" Nullable="false" />
+          <Property Type="DateTime" Name="FechaDesarrollo" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="FechaPruebas" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="FechaHora" Nullable="false" Precision="23" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PruebaTecnicaJulianArangoModelStoreContainer" CdmEntityContainer="PruebaTecnicaJulianArangoEntities" >
+          <FunctionImportMapping FunctionImportName="uspObtenerMaestroArea" FunctionName="PruebaTecnicaJulianArangoModel.Store.uspObtenerMaestroArea">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaTecnicaJulianArangoModel.uspObtenerMaestroArea_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspObtenerMaestroIngeniero" FunctionName="PruebaTecnicaJulianArangoModel.Store.uspObtenerMaestroIngeniero">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaTecnicaJulianArangoModel.uspObtenerMaestroIngeniero_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ingeniero" ColumnName="Ingeniero" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspObtenerMaestroPrioridad" FunctionName="PruebaTecnicaJulianArangoModel.Store.uspObtenerMaestroPrioridad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaTecnicaJulianArangoModel.uspObtenerMaestroPrioridad_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+                <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspObtenerRequerimientos" FunctionName="PruebaTecnicaJulianArangoModel.Store.uspObtenerRequerimientos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaTecnicaJulianArangoModel.uspObtenerRequerimientos_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Aplicativo" ColumnName="Aplicativo" />
+                <ScalarProperty Name="Alcance" ColumnName="Alcance" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+                <ScalarProperty Name="Ingeniero" ColumnName="Ingeniero" />
+                <ScalarProperty Name="DiasDesarrollo" ColumnName="DiasDesarrollo" />
+                <ScalarProperty Name="FechaDesarrollo" ColumnName="FechaDesarrollo" />
+                <ScalarProperty Name="FechaPruebas" ColumnName="FechaPruebas" />
+                <ScalarProperty Name="FechaHora" ColumnName="FechaHora" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="uspGuardarRequerimientos" FunctionName="PruebaTecnicaJulianArangoModel.Store.uspGuardarRequerimientos" />
+          <FunctionImportMapping FunctionImportName="uspEliminarRequerimientos" FunctionName="PruebaTecnicaJulianArangoModel.Store.uspEliminarRequerimientos" />
+          <FunctionImportMapping FunctionImportName="uspActualizarRequerimientos" FunctionName="PruebaTecnicaJulianArangoModel.Store.uspActualizarRequerimientos" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

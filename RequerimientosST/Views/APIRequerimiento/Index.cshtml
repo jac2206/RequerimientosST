@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+
+    @(Html.Kendo().Grid<RequerimientosST.Models.uspObtenerRequerimientos_Result>()
+                           .Name("gridRequerimientos")
+                           .DataSource(dataSource => dataSource
+                           .Ajax()
+                           .Model(Model =>
+                           {
+                               Model.Id(p => p.Id);
+
+
+                           })
+                           .Read(read => read.Action("ObtenerRequerimientosAPI", "APIRequerimiento"))
+                           //.Create(update => update.Action("CrearRegistroRequerimiento", "RegistroRequerimiento"))
+                           //.Update(update => update.Action("ActualizarRequerimiento", "RegistroRequerimiento"))
+                           //.Destroy(update => update.Action("EliminarRequerimiento", "RegistroRequerimiento"))
+                           //.ServerOperation(true)
+                           .PageSize(50)
+                           )
+
+                           .Columns(columns =>
+                           {
+
+                               columns.Bound(p => p.Id).Hidden();
+                               columns.Bound(p => p.Nombre).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Area").Width(120).Filterable(ftb => ftb.Multi(true).Search(true));
+                               columns.Bound(p => p.Aplicativo).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Aplicativo").Width(120).Filterable(ftb => ftb.Multi(true).Search(true));
+                               columns.Bound(p => p.Alcance).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Alcance").Width(160).Filterable(ftb => ftb.Multi(true).Search(true));
+                               columns.Bound(p => p.FechaSolicitud).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Fecha Solicitud").Width(150).Format("{0:yyyy-MM-dd}");
+                               columns.Bound(p => p.Prioridad).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Prioridad").Width(80).Format("{0:yyyy-MM-dd}").Width(130).Filterable(ftb => ftb.Multi(true).Search(true));
+                               columns.Bound(p => p.Ingeniero).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Ingeniero").Width(150).Filterable(ftb => ftb.Multi(true).Search(true));
+                               columns.Bound(p => p.DiasDesarrollo).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Dias Desarrollo").Width(180);
+                               columns.Bound(p => p.FechaDesarrollo).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Fecha Desarrollo").Width(180).Format("{0:yyyy-MM-dd}");
+                               columns.Bound(p => p.FechaPruebas).HeaderHtmlAttributes(new { Style = "text-align: center; font-weight: bold" }).Title("Fecha Pruebas").Width(150).Format("{0:yyyy-MM-dd}");
+                               //columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250).Title("Editar/Eliminar");
+
+                           })
+                           //.ToolBar(toolbar =>
+                           //{
+                           //    toolbar.Create().Text("Crear Requerimiento");
+
+                           //})
+                           //.Editable(editable => editable.Mode(GridEditMode.PopUp).TemplateName("EditTemplate"))
+
+                           //.HtmlAttributes(new { style = "height:2000px;" })
+
+                           .Pageable(pageable => pageable
+                           .Refresh(true)
+                           .PageSizes(new int[] { 25, 50, 100 })
+                           )
+                           //.HtmlAttributes(new { style = "width: 2110px;" })
+                           .HtmlAttributes(new { style = "width: 1210px;text-align: center;" })
+                           //.HtmlAttributes(new { style = "width: 1000px;height: 500px ;text-align: center;" })
+                           .Pageable()
+                           //.Scrollable(scrollable => scrollable.Virtual(true))
+
+                           //.Sortable()
+                           .Scrollable(s => s.Enabled(true).Height("auto"))
+                           .Selectable(selectable => selectable
+                           .Mode(GridSelectionMode.Single)
+                           .Type(GridSelectionType.Row))
+                           .Filterable()
+
+    )
+
+
+</div>
+
+
