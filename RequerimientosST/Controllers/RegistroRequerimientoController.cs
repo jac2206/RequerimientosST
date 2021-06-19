@@ -19,38 +19,7 @@ namespace RequerimientosST.Controllers
         // GET: RegistroRequerimiento
         public ActionResult Index()
         {
-            ////var url = "http://localhost/RequerimientoSTApi/api/Requerimientos/ObtenerRequerimientos";
-            ////var request = (HttpWebRequest)WebRequest.Create(url);
-            ////request.Method = "GET";
-            ////request.ContentType = "application/json";
-            ////request.Accept = "application/json";
-
-            ////try
-            ////{
-            ////    using (WebResponse response = request.GetResponse())
-            ////    {
-            ////        using (Stream strReader = response.GetResponseStream())
-            ////        {
-            ////            if (strReader == null) ;
-            ////            using (StreamReader objReader = new StreamReader(strReader))
-            ////            {
-            ////                string responseBody = objReader.ReadToEnd();
-            ////                // Do something with responseBody
-            ////                //Console.WriteLine(responseBody);
-            ////                List<uspObtenerRequerimientos_Result> ObjOrderList = JsonConvert.DeserializeObject<List<uspObtenerRequerimientos_Result>>(responseBody);
-
-            ////                var ObjOrderList2 = JsonConvert.DeserializeObject<List<uspObtenerRequerimientos_Result>>(responseBody);
-
-            ////            }
-            ////        }
-            ////    }
-
-            ////}
-
-            ////catch(Exception ex)
-            ////{
-
-            ////}
+          
             return View();
 
         }
