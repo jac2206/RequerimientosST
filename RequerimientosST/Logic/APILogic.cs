@@ -16,7 +16,7 @@ namespace RequerimientosST.Logic
             request2.Method = "GET";
             request2.ContentType = "application/json";
             request2.Accept = "application/json";
-
+            //cambio
             try
             {
                 using (WebResponse response = request2.GetResponse())
