@@ -139,6 +139,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Logic\APILogic.cs" />
+    <Compile Include="Logic\GitController.cs" />
     <Compile Include="Models\DataBase.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -239,6 +240,7 @@
     <Content Include="Views\RegistroRequerimiento\Index.cshtml" />
     <Content Include="Views\RegistroRequerimiento\EditorTemplates\EditTemplate.cshtml" />
     <Content Include="Views\APIRequerimiento\Index.cshtml" />
+    <Content Include="Views\Git\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
